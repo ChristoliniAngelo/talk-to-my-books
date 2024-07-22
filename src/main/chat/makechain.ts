@@ -25,9 +25,8 @@ export default function makeChain(
 ) {
   const model = new OpenAI({
     openAIApiKey: apiKey,
-    temperature, // increase temepreature to get more creative answers
-    // modelName: "gpt-4", //change this to gpt-4 if you have access
-    modelName: 'gpt-3.5-turbo', // change this to gpt-4 if you have access
+    temperature,
+    modelName: 'gpt-3.5-turbo', //modelx
   });
 
   const chain = ConversationalRetrievalQAChain.fromLLM(
@@ -36,7 +35,7 @@ export default function makeChain(
     {
       qaTemplate: QA_PROMPT,
       questionGeneratorTemplate: CONDENSE_PROMPT,
-      returnSourceDocuments: true, // The number of source documents returned is 4 by default
+      returnSourceDocuments: true,
     }
   );
   return chain;
